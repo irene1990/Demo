@@ -8,9 +8,11 @@ driver.get(file_path)
 #点击Link1链接（弹出下拉列表）
 driver.find_element_by_link_text('Link1').click()
 #找到id为dropdown1的父元素
-WebDriverWait(driver,10).until(lambda the_driver:the_driver.find_element_by_id('dropdown1')is_displayed())
+WebDriverWait(driver,10).until(lambda the_driver:the_driver.find_element_by_id('dropdown1').is_displayed())
 menu = driver.find_element_by_id('dropdown1').find_element_by_link_text('Action')
+menu.click()
 #鼠标定位到子元素上
+#没有预想的结果，但是click是成功的。
 webdriver.ActionChains(driver).move_to_element(menu).perform()
 time.sleep(2)
 driver.quit()
