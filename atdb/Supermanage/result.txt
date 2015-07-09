@@ -1,0 +1,89 @@
+
+****************************************************************************
+07/09/15 12:49:18
+.
+****************************************************************************
+07/09/15 12:51:27
+
+----------------------------------------------------------------------
+Ran 1 test in 8.979s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 6.687s
+
+OK
+
+****************************************************************************
+07/09/15 14:15:54
+EE
+****************************************************************************
+07/09/15 14:16:17
+
+======================================================================
+ERROR: test_untitled (__main__.Untitled)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "UserLogin.py", line 26, in test_untitled
+    driver.find_element_by_link_text(u"客户端管理").click()
+  File "/usr/local/lib/python2.7/dist-packages/selenium-2.32.0-py2.7.egg/selenium/webdriver/remote/webdriver.py", line 246, in find_element_by_link_text
+    return self.find_element(by=By.LINK_TEXT, value=link_text)
+  File "/usr/local/lib/python2.7/dist-packages/selenium-2.32.0-py2.7.egg/selenium/webdriver/remote/webdriver.py", line 680, in find_element
+    {'using': by, 'value': value})['value']
+  File "/usr/local/lib/python2.7/dist-packages/selenium-2.32.0-py2.7.egg/selenium/webdriver/remote/webdriver.py", line 163, in execute
+    response = self.command_executor.execute(driver_command, params)
+  File "/usr/local/lib/python2.7/dist-packages/selenium-2.32.0-py2.7.egg/selenium/webdriver/remote/remote_connection.py", line 349, in execute
+    return self._request(url, method=command_info[0], data=data)
+  File "/usr/local/lib/python2.7/dist-packages/selenium-2.32.0-py2.7.egg/selenium/webdriver/remote/remote_connection.py", line 396, in _request
+    response = opener.open(request)
+  File "/usr/lib/python2.7/urllib2.py", line 401, in open
+    response = self._open(req, data)
+  File "/usr/lib/python2.7/urllib2.py", line 419, in _open
+    '_open', req)
+  File "/usr/lib/python2.7/urllib2.py", line 379, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python2.7/urllib2.py", line 1211, in http_open
+    return self.do_open(httplib.HTTPConnection, req)
+  File "/usr/lib/python2.7/urllib2.py", line 1184, in do_open
+    r = h.getresponse(buffering=True)
+  File "/usr/lib/python2.7/httplib.py", line 1034, in getresponse
+    response.begin()
+  File "/usr/lib/python2.7/httplib.py", line 407, in begin
+    version, status, reason = self._read_status()
+  File "/usr/lib/python2.7/httplib.py", line 371, in _read_status
+    raise BadStatusLine(line)
+BadStatusLine: ''
+
+======================================================================
+ERROR: test_untitled (__main__.Untitled)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "UserLogin.py", line 52, in tearDown
+    self.driver.quit()
+  File "/usr/local/lib/python2.7/dist-packages/selenium-2.32.0-py2.7.egg/selenium/webdriver/firefox/webdriver.py", line 72, in quit
+    RemoteWebDriver.quit(self)
+  File "/usr/local/lib/python2.7/dist-packages/selenium-2.32.0-py2.7.egg/selenium/webdriver/remote/webdriver.py", line 455, in quit
+    self.execute(Command.QUIT)
+  File "/usr/local/lib/python2.7/dist-packages/selenium-2.32.0-py2.7.egg/selenium/webdriver/remote/webdriver.py", line 163, in execute
+    response = self.command_executor.execute(driver_command, params)
+  File "/usr/local/lib/python2.7/dist-packages/selenium-2.32.0-py2.7.egg/selenium/webdriver/remote/remote_connection.py", line 349, in execute
+    return self._request(url, method=command_info[0], data=data)
+  File "/usr/local/lib/python2.7/dist-packages/selenium-2.32.0-py2.7.egg/selenium/webdriver/remote/remote_connection.py", line 396, in _request
+    response = opener.open(request)
+  File "/usr/lib/python2.7/urllib2.py", line 401, in open
+    response = self._open(req, data)
+  File "/usr/lib/python2.7/urllib2.py", line 419, in _open
+    '_open', req)
+  File "/usr/lib/python2.7/urllib2.py", line 379, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python2.7/urllib2.py", line 1211, in http_open
+    return self.do_open(httplib.HTTPConnection, req)
+  File "/usr/lib/python2.7/urllib2.py", line 1181, in do_open
+    raise URLError(err)
+URLError: <urlopen error [Errno 111] Connection refused>
+
+----------------------------------------------------------------------
+Ran 1 test in 22.841s
+
+FAILED (errors=2)
