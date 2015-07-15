@@ -2,6 +2,8 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
 from selenium.common.exceptions import NoSuchElementException
+from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.common.action_chains import ActionChains
 import unittest, time, re
 
 class Untitled(unittest.TestCase):
@@ -16,36 +18,47 @@ class Untitled(unittest.TestCase):
         driver = self.driver
         driver.get("http://192.168.82.34/dbackup/index.php")
         self.assertEqual(u"鼎甲迪备备份服务器", driver.title)
-        driver.find_element_by_id("UserNameID").clear()
         driver.find_element_by_id("UserNameID").send_keys("dingjia")
-        driver.find_element_by_id("PWID").clear()
-        driver.find_element_by_id("PWID").send_keys("dingjia123")
+        driver.find_element_by_id("PWID").send_keys("123456")
         driver.find_element_by_id("LoginButton").click()
-        self.assertEqual(u"鼎甲迪备备份服务器", driver.title)
+        time.sleep(1)
+        current_handle = self.driver.current_window_handle
+        driver.switch_to_frame("headerflag")
         driver.find_element_by_id("sysManagerLink").click()
-        driver.find_element_by_link_text(u"用户组").click()
-        self.assertEqual(u"鼎甲迪备备份服务器", driver.title)
+        driver.switch_to_window(current_handle)
+        user = driver.find_element_by_xpath('//*[@id="navigate"]/ul[1]/li[3]/a')
+        ActionChains(driver).move_to_element(user).perform()
+        driver.find_element_by_xpath('//*[@id="navigate"]/ul[1]/li[3]/ul/li[2]/a').click()
         driver.find_element_by_id("account-group-add").click()
+        time.sleep(2)
         driver.find_element_by_id("txt_account_group_name").clear()
         driver.find_element_by_id("txt_account_group_name").send_keys("File")
-        driver.find_element_by_css_selector("button.ms-choice").click()
-        driver.find_element_by_name("selectAll").click()
-        driver.find_element_by_css_selector("#sizzle-1436424303689 > ul > li > label").click()
-        driver.find_element_by_css_selector("button.ms-choice").click()
-        driver.find_element_by_xpath("(//button[@type='button'])[6]").click()
-        driver.find_element_by_xpath("(//input[@name='selectAll'])[2]").click()
-        driver.find_element_by_css_selector("#sizzle-1436424303689 > ul > li > label").click()
-        driver.find_element_by_xpath("(//button[@type='button'])[6]").click()
+# choose users
+        driver.find_element_by_xpath('//*[@id="add_account_group_modal"]/div[2]/form/div[2]/div/div/button').click()
+        checkboxes = driver.find_elements_by_xpath('//*[@id="add_account_group_modal"]/div[2]/form/div[2]/div/div/div/ul/li[1]/label/input')
+        for checkbox in checkboxes:
+            checkbox.click()
+        time.sleep(3)
+        driver.find_element_by_xpath('//*[@id="add_account_group_modal"]/div[2]/form/div[2]/div/div/button').click()
+# choose source
+        driver.find_element_by_xpath('//*[@id="add_account_group_modal"]/div[2]/form/div[3]/div/div/button').click()
+        checkboxes = driver.find_elements_by_xpath('//*[@id="add_account_group_modal"]/div[2]/form/div[3]/div/div/div/ul/li[1]/label/input')
+        for checkbox in checkboxes:
+            checkbox.click()
+        time.sleep(3)
+        driver.find_element_by_xpath('//*[@id="add_account_group_modal"]/div[2]/form/div[3]/div/div/button').click()
+# submit
         driver.find_element_by_id("btn_submit_account_group").click()
+        time.sleep(3)
     
     def is_element_present(self, how, what):
         try: self.driver.find_element(by=how, value=what)
-        except NoSuchElementException, e: return False
+        except NoSuchElementException as e: return False
         return True
     
     def is_alert_present(self):
         try: self.driver.switch_to_alert()
-        except NoAlertPresentException, e: return False
+        except NoAlertPresentException as e: return False
         return True
     
     def close_alert_and_get_its_text(self):
