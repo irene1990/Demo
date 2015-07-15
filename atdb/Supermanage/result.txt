@@ -87,3 +87,22 @@ URLError: <urlopen error [Errno 111] Connection refused>
 Ran 1 test in 22.841s
 
 FAILED (errors=2)
+
+****************************************************************************
+22:22:25
+E
+****************************************************************************
+22:22:48
+
+======================================================================
+ERROR: test_untitled (__main__.Untitled)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "UserLogin.py", line 26, in test_untitled
+    driver.find_element_by_link_text(u"客户端管理").click()
+AttributeError: 'NoneType' object has no attribute 'click'
+
+----------------------------------------------------------------------
+Ran 1 test in 22.341s
+
+FAILED (errors=1)

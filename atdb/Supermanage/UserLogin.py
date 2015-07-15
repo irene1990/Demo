@@ -26,15 +26,15 @@ class Untitled(unittest.TestCase):
         driver.find_element_by_link_text(u"客户端管理").click()
         self.assertEqual(u"鼎甲迪备备份服务器", driver.title)
         driver.close()
-    def is_alert_present(self,how,what):
-	    try:self.driver.find_element(by=how,value=what)
-		except NoSuchElementException as e:
-		    return False
-		return True
+
+    def is_element_present(self, how, what):
+        try: self.driver.find_element(by=how, value=what)
+        except NoSuchElementException as e: return False
+        return True
 		
     def is_alert_present(self):
         try: self.driver.switch_to_alert()
-        except NoAlertPresentException, e: return False
+        except NoAlertPresentException as e: return False
         return True
     
     def close_alert_and_get_its_text(self):
@@ -57,14 +57,14 @@ if __name__ == "__main__":
     i = 0
     while i < 30:
         suite = unittest.TestSuite()
-        ttime = time.strftime('%D %H:%M:%S',time.localtime(time.time()))
+        ttime = time.strftime("%H:%M:%S",time.localtime(time.time()))
         suite.addTest(Untitled("test_untitled"))
         f = open("result.txt",'a')
         f.write("\n")
         f.write("****************************************************************************"+'\n')
         f.write(ttime+'\n')
         f.close()
-        runner = unittest.TextTestRunner(open('./result.txt', 'a'))
+        runner = unittest.TextTestRunner(open("./result.txt","a"))
         runner.run(suite)
         i += 1
 #        time.sleep(120)
