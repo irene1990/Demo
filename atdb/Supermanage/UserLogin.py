@@ -7,7 +7,7 @@ import unittest, time, re
 
 class Untitled(unittest.TestCase):
     def setUp(self):
-        self.driver = webdriver.Firefox()
+        self.driver = webdriver.Chrome()
         self.driver.implicitly_wait(30)
         self.base_url = "http://192.168.82.32/dbackup"
         self.verificationErrors = []
@@ -26,12 +26,12 @@ class Untitled(unittest.TestCase):
         driver.find_element_by_link_text(u"客户端管理").click()
         self.assertEqual(u"鼎甲迪备备份服务器", driver.title)
         driver.close()
-    
-    def is_element_present(self, how, what):
-        try: self.driver.find_element(by=how, value=what)
-        except NoSuchElementException, e: return False
-        return True
-    
+    def is_alert_present(self,how,what):
+	    try:self.driver.find_element(by=how,value=what)
+		except NoSuchElementException as e:
+		    return False
+		return True
+		
     def is_alert_present(self):
         try: self.driver.switch_to_alert()
         except NoAlertPresentException, e: return False
