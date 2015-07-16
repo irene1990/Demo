@@ -16,12 +16,12 @@ class Untitled(unittest.TestCase):
     
     def test_untitled(self):
         driver = self.driver
-        driver.get("http://192.168.82.34/dbackup/index.php")
+        driver.get("http://192.168.82.33/dbackup/index.php")
         self.assertEqual(u"鼎甲迪备备份服务器", driver.title)
         driver.find_element_by_id("UserNameID").clear()
         driver.find_element_by_id("UserNameID").send_keys("dingjia")
         driver.find_element_by_id("PWID").clear()
-        driver.find_element_by_id("PWID").send_keys("123456")
+        driver.find_element_by_id("PWID").send_keys("dingjia123")
         driver.find_element_by_id("LoginButton").click()
         time.sleep(3)
         current_handle = self.driver.current_window_handle
@@ -33,7 +33,7 @@ class Untitled(unittest.TestCase):
         driver.find_element_by_id("txt_ftp_name").clear()
         driver.find_element_by_id("txt_ftp_name").send_keys("82.34")
         driver.find_element_by_id("txt_ftp_address").clear()
-        driver.find_element_by_id("txt_ftp_address").send_keys("192.168.82.34")
+        driver.find_element_by_id("txt_ftp_address").send_keys("192.168.82.33")
         driver.find_element_by_id("txt_ftp_path").clear()
         driver.find_element_by_id("txt_ftp_path").send_keys("Files")
         driver.find_element_by_css_selector("input.w80.input-retention-days").clear()
