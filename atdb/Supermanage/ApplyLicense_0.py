@@ -8,13 +8,14 @@ class Untitled(unittest.TestCase):
     def setUp(self):
         self.driver = webdriver.Chrome()
         self.driver.implicitly_wait(30)
-        self.base_url = "http://192.168.82.34/dbackup"
+        self.driver.set_window_size(800, 480)
+        self.base_url = "http://192.168.82.32/dbackup"
         self.verificationErrors = []
         self.accept_next_alert = True
     
     def test_untitled(self):
         driver = self.driver
-        driver.get("http://192.168.82.34/dbackup/")
+        driver.get("http://192.168.82.32/dbackup/")
         self.assertEqual(u"鼎甲迪备备份服务器", driver.title)
         driver.find_element_by_id("UserNameID").clear()
         driver.find_element_by_id("UserNameID").send_keys("dingjia")
@@ -22,12 +23,18 @@ class Untitled(unittest.TestCase):
         driver.find_element_by_id("PWID").send_keys("dingjia123")
         driver.find_element_by_id("LoginButton").click()
         self.assertEqual(u"鼎甲迪备备份服务器", driver.title)
+        time.sleep(20)
+        current_handle = self.driver.current_window_handle
+        driver.switch_to_frame("headerflag")
         driver.find_element_by_id("sysManagerLink").click()
+        driver.switch_to_window(current_handle)
         driver.find_element_by_link_text(u"许可证").click()
         self.assertEqual(u"鼎甲迪备备份服务器", driver.title)
         driver.find_element_by_id("licenses_request").click()
         self.assertEqual(u"鼎甲迪备备份服务器", driver.title)
+        time.sleep(10)
         driver.find_element_by_name("type").click()
+        time.sleep(3)
         driver.find_element_by_xpath("(//button[@type='button'])[2]").click()
         driver.find_element_by_id("default_num").clear()
         driver.find_element_by_id("default_num").send_keys("15")
@@ -73,12 +80,12 @@ class Untitled(unittest.TestCase):
     
     def is_element_present(self, how, what):
         try: self.driver.find_element(by=how, value=what)
-        except NoSuchElementException, e: return False
+        except NoSuchElementException as e: return False
         return True
     
     def is_alert_present(self):
         try: self.driver.switch_to_alert()
-        except NoAlertPresentException, e: return False
+        except NoAlertPresentException as e: return False
         return True
     
     def close_alert_and_get_its_text(self):
