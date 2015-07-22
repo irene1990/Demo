@@ -7,10 +7,10 @@ import unittest, time, re
 
 class Untitled(unittest.TestCase):
     def setUp(self):
-        self.driver = webdriver.Chrome()
+        self.driver = webdriver.Firefox()
         self.driver.implicitly_wait(30)
 #        self.driver.set_window_size(800, 480)
-        self.base_url = "http://192.168.82.34/dbackup"
+        self.base_url = "http://192.168.82.33/dbackup"
         self.verificationErrors = []
         self.accept_next_alert = True
     
@@ -31,7 +31,7 @@ class Untitled(unittest.TestCase):
         driver.find_element_by_xpath('//*[@id="navigate"]/ul[1]/li[2]/a').click()
         driver.find_element_by_xpath("/html/body/div[4]/div[3]/div[1]/div[1]/div[1]/div/a").click()
         driver.find_element_by_id("txt_ftp_name").clear()
-        driver.find_element_by_id("txt_ftp_name").send_keys("82.34")
+        driver.find_element_by_id("txt_ftp_name").send_keys("82.33")
         driver.find_element_by_id("txt_ftp_address").clear()
         driver.find_element_by_id("txt_ftp_address").send_keys("192.168.82.33")
         driver.find_element_by_id("txt_ftp_path").clear()

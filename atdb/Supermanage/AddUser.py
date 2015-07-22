@@ -8,7 +8,7 @@ import unittest, time, re
 
 class Untitled(unittest.TestCase):
     def setUp(self):
-        self.driver = webdriver.Chrome()
+        self.driver = webdriver.Firefox()
         self.driver.implicitly_wait(30)
         self.base_url = "http://192.168.82.33/dbackup"
         self.verificationErrors = []
@@ -17,7 +17,6 @@ class Untitled(unittest.TestCase):
     def test_untitled(self):
         driver = self.driver
         driver.get("http://192.168.82.33/dbackup/index.php")
-        self.assertEqual(u"鼎甲迪备备份服务器", driver.title)
         driver.find_element_by_id("UserNameID").send_keys("admin")
         driver.find_element_by_id("PWID").send_keys("admin")
         driver.find_element_by_id("LoginButton").click()
@@ -27,7 +26,7 @@ class Untitled(unittest.TestCase):
         driver.find_element_by_xpath('//*[@id="navigate"]/ul[1]/li[3]/ul/li[1]/a').click()
         time.sleep(2)
         driver.find_element_by_id("account-add").click()
-        driver.find_element_by_id("txt_username").send_keys("scutech")
+        driver.find_element_by_id("txt_username").send_keys("dingjia")
         driver.find_element_by_id("txt_password").send_keys("dingjia123")
         driver.find_element_by_id("txt_re_password").send_keys("dingjia123")
         driver.find_element_by_id("txt_email").send_keys("dingjia1@scutech.com")
