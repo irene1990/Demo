@@ -1,0 +1,10 @@
+import GetPackages
+obj = GetPackages.GetPackages()
+obj.getLastDEBServer()
+obj.getLastDEBAgent()
+obj.getLastRPMAgent()
+obj.getLastAIXAgent()
+obj.getReleaseDEBServer()
+obj.getReleaseDEBAgent()
+obj.getReleaseRPMAgent()
+obj.getReleaseAIXAgent()
