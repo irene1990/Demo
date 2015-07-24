@@ -7,8 +7,7 @@ class GetPackages():
 		self.ftp.login('scutech','dingjia')
 
 	def getDown(self, listname):
-		l = len(listname)
-		filename  =''.join(listname[l-1:l])
+		filename  =''.join(listname[-1])
 		f = open(filename,"wb").write
 		self.ftp.retrbinary("RETR %s"%filename, f, 8192)
 
