@@ -10,13 +10,13 @@ class Untitled(unittest.TestCase):
         self.driver = webdriver.Firefox()
         self.driver.implicitly_wait(30)
 #        self.driver.set_window_size(800, 480)
-        self.base_url = "http://192.168.82.33/dbackup"
+        self.base_url = "http://192.168.82.32/dbackup"
         self.verificationErrors = []
         self.accept_next_alert = True
     
     def test_untitled(self):
         driver = self.driver
-        driver.get("http://192.168.82.33/dbackup/index.php")
+        driver.get("http://192.168.82.32/dbackup/index.php")
         self.assertEqual(u"鼎甲迪备备份服务器", driver.title)
         driver.find_element_by_id("UserNameID").clear()
         driver.find_element_by_id("UserNameID").send_keys("dingjia")
@@ -33,7 +33,7 @@ class Untitled(unittest.TestCase):
         driver.find_element_by_id("txt_ftp_name").clear()
         driver.find_element_by_id("txt_ftp_name").send_keys("dedup")
         driver.find_element_by_id("txt_ftp_address").clear()
-        driver.find_element_by_id("txt_ftp_address").send_keys("192.168.82.33")
+        driver.find_element_by_id("txt_ftp_address").send_keys("192.168.82.32")
 #        driver.find_element_by_id("txt_ftp_path").clear()
 #        driver.find_element_by_id("txt_ftp_path").send_keys("Files")
         driver.find_element_by_id("cb_ftp_type_ws").click()
