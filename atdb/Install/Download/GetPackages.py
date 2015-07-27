@@ -58,3 +58,15 @@ class GetPackages():
 		self.ftp.cwd(filepath)
 		listname = self.ftp.nlst(LANG.agent_aix)
 		self.getDown(listname)
+
+	def getLastDEBServer3(self):
+		filepath = LANG.lastest31 + 'deb' + LANG.lastest32 + LANG.deb3 + '/'
+		self.ftp.cwd(filepath)
+		dir1 = self.ftp.nlst('*')
+		self.ftp.cwd(dir1[-1][18:-10])
+		listname1 = self.ftp.nlst('*common*')
+		listname2 = self.ftp.nlst('*backupd*')
+		listname3 = self.ftp.nlst('*storaged*')
+		self.getDown(listname1)
+		self.getDown(listname2)
+		self.getDown(listname3)
