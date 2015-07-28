@@ -58,10 +58,10 @@ class GetPackages():
 		self.ftp.cwd(dir1[-1][18:-10])
 		listname1 = self.ftp.nlst('*common*')
 		listname2 = self.ftp.nlst('*backupd*')
-		listname3 = self.ftp.nlst('*storaged*')
+#		listname3 = self.ftp.nlst('*storaged*')
 		self.getDown(listname1)
 		self.getDown(listname2)
-		self.getDown(listname3)
+#		self.getDown(listname3)
 
 	def getLastRPMDBackup3(self):
 		filepath = LANG.lastest3_path + 'rpm' + LANG.dbackup3_mid + 'x86_64'
@@ -80,6 +80,20 @@ class GetPackages():
 		self.getDown(listname4)
 		self.getDown(listname5)
 		self.getDown(listname6)
+
+        def getLastMIPS64DBackup3(self):
+                filepath = LANG.lastest3_path + 'rpm' + LANG.dbackup3_mid + 'mips64el'
+                self.ftp.cwd(filepath)
+                dir1 = self.ftp.nlst('*')
+                self.ftp.cwd(dir1[-1][18:-19])
+                listname1 = self.ftp.nlst('*common*')
+                listname2 = self.ftp.nlst('*libstdc*')
+                listname3 = self.ftp.nlst('*agent-3.0*')
+                listname4 = self.ftp.nlst('*agent*file*')
+                self.getDown(listname1)
+                self.getDown(listname2)
+                self.getDown(listname3)
+                self.getDown(listname4)
 
 	def getLastPPCDBackup3(self):
 		filepath = LANG.lastest3_path + 'rpm' + LANG.dbackup3_mid + 'ppc64'
@@ -123,6 +137,19 @@ class GetPackages():
 		self.getDown(listname4)
 		self.getDown(listname5)
 		self.getDown(listname6)
+
+        def getReleaseiMIPS64DBackup3(self):
+                filepath = LANG.release_dbackup3 + 'mips64el'
+                self.ftp.cwd(filepath)
+                listname1 = self.ftp.nlst('*common*')
+                listname2 = self.ftp.nlst('*libstdc*')
+                listname3 = self.ftp.nlst('*agent-3.0*')
+                listname4 = self.ftp.nlst('*agent*file*')
+                self.getDown(listname1)
+                self.getDown(listname2)
+                self.getDown(listname3)
+                self.getDown(listname4)
+
 
 	def getReleasePPCDBackup3(self):
 		filepath = LANG.release_dbackup3 + 'ppc64'
