@@ -8,15 +8,15 @@ import unittest, time, re
 
 class Untitled(unittest.TestCase):
     def setUp(self):
-        self.driver = webdriver.Firefox()
+        self.driver = webdriver.Chrome()
         self.driver.implicitly_wait(30)
-        self.base_url = "http://192.168.82.32/dbackup"
+        self.base_url = "http://192.168.82.33/dbackup"
         self.verificationErrors = []
         self.accept_next_alert = True
     
     def test_untitled(self):
         driver = self.driver
-        driver.get("http://192.168.82.32/dbackup/index.php")
+        driver.get("http://192.168.82.33/dbackup/index.php")
         driver.find_element_by_id("UserNameID").send_keys("admin")
         driver.find_element_by_id("PWID").send_keys("admin")
         driver.find_element_by_id("LoginButton").click()
