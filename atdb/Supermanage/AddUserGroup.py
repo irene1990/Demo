@@ -11,13 +11,13 @@ class Untitled(unittest.TestCase):
     def setUp(self):
         self.driver = webdriver.Firefox()
         self.driver.implicitly_wait(30)
-        self.base_url = "http://192.168.82.32/dbackup"
+        self.base_url = "http://192.168.82.33/dbackup"
         self.verificationErrors = []
         self.accept_next_alert = True
     
     def test_untitled(self):
         driver = self.driver
-        driver.get("http://192.168.82.32/dbackup/index.php")
+        driver.get("http://192.168.82.33/dbackup/index.php")
         self.assertEqual(u"鼎甲迪备备份服务器", driver.title)
         driver.find_element_by_id("UserNameID").send_keys("dingjia")
         driver.find_element_by_id("PWID").send_keys("dingjia123")
@@ -33,7 +33,7 @@ class Untitled(unittest.TestCase):
         driver.find_element_by_id("account-group-add").click()
         time.sleep(2)
         driver.find_element_by_id("txt_account_group_name").clear()
-        driver.find_element_by_id("txt_account_group_name").send_keys("PostgreSQL")
+        driver.find_element_by_id("txt_account_group_name").send_keys("Files")
 # choose users
         driver.find_element_by_xpath('//*[@id="add_account_group_modal"]/div[2]/form/div[2]/div/div/button').click()
         checkboxes = driver.find_elements_by_xpath('//*[@id="add_account_group_modal"]/div[2]/form/div[2]/div/div/div/ul/li[1]/label/input')
