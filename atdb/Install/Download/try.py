@@ -1,6 +1,6 @@
 import GetPackages
 obj = GetPackages.GetPackages()
-obj.getLastDEBServer()
+#obj.getLastDEBServer()
 #obj.getLastDEBAgent()
 #obj.getLastRPMAgent()
 #obj.getLastAIXAgent()

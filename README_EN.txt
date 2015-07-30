@@ -16,6 +16,8 @@
             --Ubuntu_dbackup3.sh
             --Ubuntu_RN.sh
             --Ubuntu_server.sh
+            --Ubuntu_CG.sh
+            --Ubuntu_storaged.sh
         --test.sh
     --MonitorManage
     --PublicFolder

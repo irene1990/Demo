@@ -16,6 +16,8 @@
             口口Ubuntu_dbackup3.sh
             口口Ubuntu_RN.sh
             口口Ubuntu_server.sh
+            口口Ubuntu_CG.sh
+            口口Ubuntu_storaged.sh
         口口test.sh
     口口MonitorManage
     口口PublicFolder

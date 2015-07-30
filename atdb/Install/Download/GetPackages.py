@@ -58,10 +58,10 @@ class GetPackages():
 		self.ftp.cwd(dir1[-1][18:-10])
 		listname1 = self.ftp.nlst('*common*')
 		listname2 = self.ftp.nlst('*backupd*')
-#		listname3 = self.ftp.nlst('*storaged*')
+		listname3 = self.ftp.nlst('*storaged*')
 		self.getDown(listname1)
 		self.getDown(listname2)
-#		self.getDown(listname3)
+		self.getDown(listname3)
 
 	def getLastRPMDBackup3(self):
 		filepath = LANG.lastest3_path + 'rpm' + LANG.dbackup3_mid + 'x86_64'
