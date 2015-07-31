@@ -1,16 +1,12 @@
 --atdb
-    --hello.py
     --Install
         --Agent
         --Download
-            --cwd_5.1.py
-            --Get5_1VServerDeb.py
             --GetLastestServerDeb.py
             --GetPackages.py
             --GetPackages.pyc
             --LANG.py
             --LANG.pyc
-            --login.py
             --try.py
         --Server
             --Ubuntu_dbackup3.sh
@@ -18,7 +14,6 @@
             --Ubuntu_server.sh
             --Ubuntu_CG.sh
             --Ubuntu_storaged.sh
-        --test.sh
     --MonitorManage
     --PublicFolder
     --Supermanage
@@ -50,7 +45,9 @@
             --DF_DifferentialBackup_0.py
             --TS_CumulativeBackup_0.py
             --TS_FullBackup_0.py
-
+--atdb
+    --Testcase
+        --InstallUbuntuServer.sh
 --test
     --2.2.py
     --checkbox_pop.py

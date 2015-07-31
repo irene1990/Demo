@@ -100,16 +100,16 @@ class GetPackages():
 		print filepath
 		self.ftp.cwd(filepath)
 		dir1 = self.ftp.nlst('*')
-		self.ftp.cwd(dir1[-1][18:-23])
-		listname1 = self.ftp.nlst('*common*')
-		listname2 = self.ftp.nlst('*libstdc*')
-		listname3 = self.ftp.nlst('*agent-3.0*')
-		listname4 = self.ftp.nlst('*agent*oracle*')
-		listname5 = self.ftp.nlst('*agent*file*')
+		self.ftp.cwd(dir1[-1][18:-31])
+		listname1 = self.ftp.nlst('*common*5.1*')
+		listname2 = self.ftp.nlst('*libstdc*5.1*')
+		listname3 = self.ftp.nlst('*agent-3.0*5.1*')
+#		listname4 = self.ftp.nlst('*agent*oracle*5.1*')
+		listname5 = self.ftp.nlst('*agent*file*5.1*')
 		self.getDown(listname1)
 		self.getDown(listname2)
 		self.getDown(listname3)
-		self.getDown(listname4)
+#		self.getDown(listname4)
 		self.getDown(listname5)
 
 	def getReleaseDEBServer3(self):

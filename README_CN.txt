@@ -1,16 +1,12 @@
 口口atdb
-    口口hello.py
     口口Install
         口口Agent
         口口Download
-            口口cwd_5.1.py
-            口口Get5_1VServerDeb.py
             口口GetLastestServerDeb.py
             口口GetPackages.py
             口口GetPackages.pyc
             口口LANG.py
             口口LANG.pyc
-            口口login.py
             口口try.py
         口口Server
             口口Ubuntu_dbackup3.sh
@@ -18,7 +14,6 @@
             口口Ubuntu_server.sh
             口口Ubuntu_CG.sh
             口口Ubuntu_storaged.sh
-        口口test.sh
     口口MonitorManage
     口口PublicFolder
     口口Supermanage
@@ -50,7 +45,9 @@
             口口DF_DifferentialBackup_0.py
             口口TS_CumulativeBackup_0.py
             口口TS_FullBackup_0.py
-
+口口atdb
+    口口Testcase
+        口口InstallUbuntuServer.sh
 口口test
     口口2.2.py
     口口checkbox_pop.py
