@@ -8,7 +8,7 @@ import unittest, time, re
 
 class Untitled(unittest.TestCase):
     def setUp(self):
-        self.driver = webdriver.Chrome()
+        self.driver = webdriver.Firefox()
         self.driver.implicitly_wait(30)
         self.base_url = "http://192.168.82.33/dbackup"
         self.verificationErrors = []

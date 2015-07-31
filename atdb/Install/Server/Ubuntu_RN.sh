@@ -1,4 +1,4 @@
 #!/bin/bash
-mv /root/dbackup-server* /root/dbackup-server.deb
-mv /root/dbackup3-storaged* /root/dbackup3-storaged.deb
+mv /tmp/dbackup-server* /tmp/dbackup-server.deb
+mv /tmp/dbackup3-storaged* /tmp/dbackup3-storaged.deb
 echo "rename successfully"
