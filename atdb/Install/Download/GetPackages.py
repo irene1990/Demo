@@ -1,5 +1,3 @@
-import sys
-sys.path.append(r'/home/irene/Eclipse/workspace/Demo/atdb')
 from ftplib import FTP
 import CONFIG
 class GetPackages():
@@ -57,7 +55,6 @@ class GetPackages():
 		filepath = CONFIG.LASTEST3_PATH + 'deb' + CONFIG.DBACKUP3_MID + 'x86_64/'
 		self.ftp.cwd(filepath)
 		dir1 = self.ftp.nlst('*')
-		print filepath + dir1[-1][19:-10]
 		self.ftp.cwd(dir1[-1][19:-10])
 		listname1 = self.ftp.nlst('*common*')
 		listname2 = self.ftp.nlst('*backupd*')
@@ -88,7 +85,6 @@ class GetPackages():
 		filepath = CONFIG.LASTEST3_PATH + 'rpm' + CONFIG.DBACKUP3_MID + 'mips64el/'
 		self.ftp.cwd(filepath)
 		dir1 = self.ftp.nlst('*')
-		print filepath + dir1[-1][15:-27]
 		self.ftp.cwd(dir1[-1][15:-27])
 		listname1 = self.ftp.nlst('*common*')
 		listname2 = self.ftp.nlst('*libstdc*')
@@ -166,3 +162,22 @@ class GetPackages():
 		self.getDown(listname3)
 		self.getDown(listname4)
 		self.getDown(listname5)
+
+if __name__ == '__main__':
+    getpackages = GetPackages()
+    getpackages.getLastDEBServer()
+	#getpackages.getLastDEBAgent()
+	#getpackages.getLastRPMAgent()
+	#getpackages.getLastAIXAgent()
+	#getpackages.getReleaseDEBServer()
+	#getpackages.getReleaseDEBAgent()
+	#getpackages.getReleaseRPMAgent()
+	#getpackages.getReleaseAIXAgent()
+    #getpackages.getLastDEBServer3()
+	#getpackages.getLastRPMDBackup3()
+	#getpackages.getLastPPCDBackup3()
+	#getpackages.getReleaseDEBServer3()
+	#getpackages.getReleaseRPMDBackup3()
+	#getpackages.getReleasePPCDBackup3()
+	#getpackages.getLastMIPS64DBackup3()
+	
