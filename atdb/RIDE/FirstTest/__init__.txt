@@ -1,0 +1,4 @@
+*** Settings ***
+Suite Setup       set selenium timeout    30
+Test Setup        Selenium2Library.Set Selenium Implicit Wait    30
+Library           Selenium2Library

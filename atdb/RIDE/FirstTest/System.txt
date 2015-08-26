@@ -1,0 +1,32 @@
+*** Settings ***
+Library           Selenium2Library
+
+*** Variables ***
+@{USER}           dingjia1    dingjia2    dingjia3    dingjia4    dingjia5    dingjia6    dingjia7
+...               dingjia8    dingjia9    dingjia10
+@{PASSWD}         dingjia123
+
+*** Test Cases ***
+Login By admin
+    Open Browser    http://192.168.82.33/dbackup
+    Input Text    id=UserNameID    admin
+    Input Text    id=PWID    admin
+    Click Button    id=LoginButton
+    mouse down    xpath=//*[@id="navigate"]/ul[1]/li[3]/a
+    click element    xpath=//*[@id="navigate"]/ul[1]/li[3]/ul/li[1]/a
+    :FOR    ${u}    in    @{USER}
+    \    select window    url=http://192.168.82.33/dbackup/Supermanage/Accounts.php
+    \    click element    id=account-add
+    \    Input Text    id=txt_username    ${u}
+    \    Input Text    id=txt_password    @{PASSWD}
+    \    Input Text    id=txt_re_password    @{PASSWD}
+    \    Input Text    id=txt_email    scutech@scutech.com
+    \    Input Text    id=txt_phone    13822548786
+    \    Click Element    id=cb_role_admin
+    \    Click Element    id=cb_role_monitor
+    \    Click Element    id=btn_submit_user
+    \    Capture Page Screenshot
+
+Test For
+    :FOR    ${a}    in range    10
+    \    log    ${a}
