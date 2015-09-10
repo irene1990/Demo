@@ -14,7 +14,7 @@ Login By admin
     Click Button    id=LoginButton
     mouse down    xpath=//*[@id="navigate"]/ul[1]/li[3]/a
     click element    xpath=//*[@id="navigate"]/ul[1]/li[3]/ul/li[1]/a
-    :FOR    ${u}    in    @{USER}
+    : FOR    ${u}    IN    @{USER}
     \    select window    url=http://192.168.82.33/dbackup/Supermanage/Accounts.php
     \    click element    id=account-add
     \    Input Text    id=txt_username    ${u}
@@ -28,5 +28,11 @@ Login By admin
     \    Capture Page Screenshot
 
 Test For
-    :FOR    ${a}    in range    10
+    : FOR    ${a}    IN RANGE    10
     \    log    ${a}
+
+login jiuyuan
+    Open Browser    http://192.168.82.32
+    Input Text    id=username    safeadmin
+    Input Text    id=password    1234
+    Click button    xpath=//*[@id="user_login"]
