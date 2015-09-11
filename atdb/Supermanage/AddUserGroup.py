@@ -5,19 +5,20 @@ from selenium.webdriver.support.ui import Select
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.action_chains import ActionChains
-import unittest, time, re
-
+import unittest, time, re,sys
+sys.path.append(r'/home/irene/Eclipse/workspace/Demo/atdb/')
+import CONFIG
 class Untitled(unittest.TestCase):
     def setUp(self):
         self.driver = webdriver.Firefox()
         self.driver.implicitly_wait(30)
-        self.base_url = "http://192.168.82.33/dbackup"
+        self.base_url = "http://" + CONFIG.DBIP + "/dbackup/"
         self.verificationErrors = []
         self.accept_next_alert = True
     
     def test_untitled(self):
         driver = self.driver
-        driver.get("http://192.168.82.33/dbackup/index.php")
+        driver.get(self.base_url)
         self.assertEqual(u"鼎甲迪备备份服务器", driver.title)
         driver.find_element_by_id("UserNameID").send_keys("dingjia")
         driver.find_element_by_id("PWID").send_keys("dingjia123")

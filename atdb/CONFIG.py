@@ -1,5 +1,7 @@
-DBIP="192.168.82.40"
+DBIP="192.168.82.33"
 FTPIP="192.168.88.10"
+DedupStoragedIP="192.168.82.33"
+StoragedIP="192.168.82.33"
 FUSER="scutech"
 FPASSWD="dingjia"
 DUSER="dingjia"

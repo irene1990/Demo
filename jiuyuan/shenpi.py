@@ -15,32 +15,32 @@ class Untitled(unittest.TestCase):
     def test_untitled(self):
         driver = self.driver
         driver.get(self.base_url)
-        driver.find_element_by_id("username").send_keys("safeadmin")
-        driver.find_element_by_id("password").send_keys("1234")
+        driver.find_element_by_id("username").send_keys("g2safe")
+        driver.find_element_by_id("password").send_keys("Dingjia123!")
         driver.find_element_by_id("user_login").click()
         driver.find_element_by_id("job").click()
-        now_handle1 = driver.current_window_handle
-        print now_handle1
         kk = driver.find_elements_by_xpath("//*[@id='pageinfo']/tbody/tr")
         print len(kk)
-        i = 1
-        while i < len(kk):
-            path = "//*[@id='pageinfo']/tbody/tr["+str(i)+"]/td[6]/button"
-            nums = len(driver.find_elements_by_xpath(path))
-            status = driver.find_element_by_xpath(path+"["+str(1)+"]").text
-            print status
-            i += 1
-        now_handle2 = driver.current_window_handle
-        print now_handle2
-        driver.refresh()
-        now_handle3 = driver.current_window_handle
-        print now_handle3
-        i = 1
-        while i < len(kk):
-            path = "//*[@id='pageinfo']/tbody/tr["+str(i)+"]/td[6]/button"
-            nums = len(driver.find_elements_by_xpath(path))
-            status = driver.find_element_by_xpath(path+"["+str(1)+"]").text
-            print status
-            i += 1
+        while True:
+            i = 1
+            while i < len(kk)+1:
+                path = "//*[@id='pageinfo']/tbody/tr["+str(i)+"]/td[6]/button"
+                nums = len(driver.find_elements_by_xpath(path))
+                status = driver.find_element_by_xpath(path+"["+str(1)+"]").text.encode('utf-8')
+                #print status
+                if status == '通过':
+                    print 'pass'
+                    driver.find_element_by_xpath(path+"["+str(1)+"]").click()
+                    time.sleep(2)
+                i += 1
+            driver.refresh()
+            time.sleep(5)
+        #i = 1
+        #while i < len(kk):
+        #    path = "//*[@id='pageinfo']/tbody/tr["+str(i)+"]/td[6]/button"
+        #    nums = len(driver.find_elements_by_xpath(path))
+        #    status = driver.find_element_by_xpath(path+"["+str(1)+"]").text
+        #    print status
+        #    i += 1
 if __name__ == "__main__":
     unittest.main()

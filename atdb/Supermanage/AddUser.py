@@ -4,19 +4,22 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.action_chains import ActionChains
-import unittest, time, re
+import unittest, time, re,sys
+sys.path.append(r'/home/irene/Eclipse/workspace/Demo/atdb/')
+import CONFIG
 
 class Untitled(unittest.TestCase):
     def setUp(self):
         self.driver = webdriver.Firefox()
         self.driver.implicitly_wait(30)
-        self.base_url = "http://192.168.82.33/dbackup"
+        #self.base_url = "http://192.168.82.33/dbackup"
+        self.base_url = "http://" + CONFIG.DBIP + "/dbackup/"
         self.verificationErrors = []
         self.accept_next_alert = True
     
     def test_untitled(self):
         driver = self.driver
-        driver.get("http://192.168.82.33/dbackup/index.php")
+        driver.get(self.base_url)
         driver.find_element_by_id("UserNameID").send_keys("admin")
         driver.find_element_by_id("PWID").send_keys("admin")
         driver.find_element_by_id("LoginButton").click()
@@ -26,6 +29,7 @@ class Untitled(unittest.TestCase):
         driver.find_element_by_xpath('//*[@id="navigate"]/ul[1]/li[3]/ul/li[1]/a').click()
         time.sleep(2)
         driver.find_element_by_id("account-add").click()
+        time.sleep(2)
         driver.find_element_by_id("txt_username").send_keys("dingjia")
         driver.find_element_by_id("txt_password").send_keys("dingjia123")
         driver.find_element_by_id("txt_re_password").send_keys("dingjia123")

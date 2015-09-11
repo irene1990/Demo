@@ -3,25 +3,27 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
 from selenium.common.exceptions import NoSuchElementException
-import unittest, time, re
+import unittest, time, re,sys
+sys.path.append(r'/home/irene/Eclipse/workspace/Demo/atdb/')
+import CONFIG
 
 class Untitled(unittest.TestCase):
     def setUp(self):
         self.driver = webdriver.Firefox()
         self.driver.implicitly_wait(30)
 #        self.driver.set_window_size(800, 480)
-        self.base_url = "http://192.168.82.32/dbackup"
+        self.base_url = "http://" + CONFIG.DBIP + "/dbackup/"
         self.verificationErrors = []
         self.accept_next_alert = True
     
     def test_untitled(self):
         driver = self.driver
-        driver.get("http://192.168.82.32/dbackup/index.php")
+        driver.get(self.base_url)
         self.assertEqual(u"鼎甲迪备备份服务器", driver.title)
         driver.find_element_by_id("UserNameID").clear()
-        driver.find_element_by_id("UserNameID").send_keys("dingjia")
+        driver.find_element_by_id("UserNameID").send_keys(CONFIG.DUSER)
         driver.find_element_by_id("PWID").clear()
-        driver.find_element_by_id("PWID").send_keys("dingjia123")
+        driver.find_element_by_id("PWID").send_keys(CONFIG.DPASSWD)
         driver.find_element_by_id("LoginButton").click()
         time.sleep(3)
         current_handle = self.driver.current_window_handle
@@ -31,9 +33,9 @@ class Untitled(unittest.TestCase):
         driver.find_element_by_xpath('//*[@id="navigate"]/ul[1]/li[2]/a').click()
         driver.find_element_by_xpath("/html/body/div[4]/div[3]/div[1]/div[1]/div[1]/div/a").click()
         driver.find_element_by_id("txt_ftp_name").clear()
-        driver.find_element_by_id("txt_ftp_name").send_keys("dedup")
+        driver.find_element_by_id("txt_ftp_name").send_keys("dedup"+CONFIG.DedupStoragedIP)
         driver.find_element_by_id("txt_ftp_address").clear()
-        driver.find_element_by_id("txt_ftp_address").send_keys("192.168.82.32")
+        driver.find_element_by_id("txt_ftp_address").send_keys(CONFIG.DedupStoragedIP)
 #        driver.find_element_by_id("txt_ftp_path").clear()
 #        driver.find_element_by_id("txt_ftp_path").send_keys("Files")
         driver.find_element_by_id("cb_ftp_type_ws").click()
