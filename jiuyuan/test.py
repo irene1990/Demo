@@ -1,14 +1,18 @@
-import test_shenpi,sys
+import test_shenpi,sys,time
 obj=test_shenpi.test_shenpi()
-3 safeadmin tmanager g1manager dingjia scutech
+#3 safeadmin tmanager g1manager dingjia scutech
 num = len(sys.argv)
-i = sys.argv[0] # ji ceng shen pi
-j = 1
-while j < i+1:
-    approvalor = sys.argv[j+1]
-    obj.login(approvalor,'1234')  # shen pi yuan deng lu
-	m = 1
-	while m < num - sys.argv[0]:#bian li cao zuo yuan
-	    loginusr = sys.argv[i+1+m]
-		obj.approval(loginuser)
-	obj.logout()
+k = sys.argv[0] # ji ceng shen pi
+while True:
+	i = 2
+	j = 1
+	while j < i+1 :
+		m = 0
+		while m < num - i -2:
+			approvalor = sys.argv[j+1]
+			obj.login(approvalor,'Dingjia123!')
+			loginuser = sys.argv[i+m+2]
+			obj.approval(loginuser)
+			m +=1
+		j +=1
+	time.sleep(5)
