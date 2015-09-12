@@ -1,14 +1,15 @@
 ﻿#coding=utf-8
 from selenium import webdriver
-import time
+import time,CONFIG
 class test_shenpi():
     def __init__(self):
         self.driver = webdriver.Firefox()
-        self.driver.implicitly_wait(30)
-        self.base_url = "http://192.168.82.33"
+        #self.driver.implicitly_wait(5)
+        self.base_url = CONFIG.IP
     def login(self,username,password):
         driver = self.driver
-        driver.get(self.base_url)
+        print 'login'
+        driver.get("192.168.82.52")
         driver.find_element_by_id("username").send_keys(username)
         driver.find_element_by_id("password").send_keys(password)
         driver.find_element_by_id("user_login").click()
@@ -30,7 +31,7 @@ class test_shenpi():
             if tmpapprovalor == approvalor:
                 if btext == '通过':
                     print approvalor + ' pass'
-                    driver.find_element_by_xpath(path+"["+str(1)+"]").click()
+                    #driver.find_element_by_xpath(path+"["+str(1)+"]").click()
                     try:
                         alter = switch_to_alert()
                         alter.accept()

@@ -1,18 +1,23 @@
-import test_shenpi,sys,time
+import test_shenpi,sys,time,CONFIG
 obj=test_shenpi.test_shenpi()
 #3 safeadmin tmanager g1manager dingjia scutech
-num = len(sys.argv)
-k = sys.argv[0] # ji ceng shen pi
+i = len(CONFIG.suser)
+print i
+n = len(CONFIG.operator) # ji ceng shen pi
+print n
+print 'kk'
 while True:
-	i = 2
-	j = 1
-	while j < i+1 :
+	j = 0
+	while j < i - 1 :
 		m = 0
-		while m < num - i -2:
-			approvalor = sys.argv[j+1]
-			obj.login(approvalor,'Dingjia123!')
-			loginuser = sys.argv[i+m+2]
-			obj.approval(loginuser)
+		while m < n - 1:
+			suser = CONFIG.suser[j]
+			print suser
+			spassword = CONFIG.spassword[j]
+			print spassword
+			obj.login(suser,spassword)
+			operator = CONFIG.operator[m]
+			obj.approval(operator)
 			m +=1
 		j +=1
 	time.sleep(5)
